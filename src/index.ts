@@ -26,27 +26,6 @@ connection
   })
 const client = new Client()
 
-log.warn("Updating constants real time")
-
-for (const [key, value] of Object.entries(Constants.colors)) {
-  if (typeof value === 'string') {
-    Constants.colors[key] = parseInt(value.replace("#", "0x"))
-  }
-}
-if (config.prefixes) {
-  Constants.prefixes = config.prefixes
-}
-if (config.allowBotToBeMentionedAsPrefix || !config.prefixes) {
-  Constants.prefixes = [
-    ...Constants.prefixes,
-    `<@${client.user?.id}>`,
-    `<@!${client.user?.id}>`,
-  ]
-}
-
-log.debug("New constants created: ")
-console.log(Constants.colors)
-
 const props: EventPropsInterface = {
   client,
   log,

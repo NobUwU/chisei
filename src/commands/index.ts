@@ -34,9 +34,11 @@ export const parseCommand = async (props: CommandPropsInterface): Promise<void> 
   props.args = content.split(" ")
     .filter(i => i.length > 0)
   
+  if (!props.args[0]) return
   if (!constants.prefixes.includes(props.args[0].toLowerCase())) return
   props.args.shift()
 
+  if (!props.args[0]) return
   const command: CommandInterface | undefined = commands.find(cmd => cmd.aliases?.includes(props.args[0].toLowerCase()) || cmd.name === props.args[0].toLowerCase())
   if (!command) return
   props.args.shift()
