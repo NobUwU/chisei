@@ -51,6 +51,7 @@ const props: EventPropsInterface = {
   client,
   log,
   constants: Constants,
+  config,
 }
 
 client.on('ready', ready(props))

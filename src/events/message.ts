@@ -14,6 +14,7 @@ const message = (props: EventPropsInterface) => (message: Message): void => {
   const {
     log,
     constants,
+    config,
   } = props
 
   log.debug(message.content)
@@ -27,6 +28,7 @@ const message = (props: EventPropsInterface) => (message: Message): void => {
     constants,
     send,
     log,
+    config,
   })
 
   parseCommand(commandProps)

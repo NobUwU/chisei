@@ -15,6 +15,7 @@ export const parseCommand = async (props: CommandPropsInterface): Promise<void> 
   
   const {
     client,
+    config,
     send,
     constants,
     content,
@@ -25,7 +26,7 @@ export const parseCommand = async (props: CommandPropsInterface): Promise<void> 
   if (author.bot) return
 
   if (constants.prefixes.includes(content.replace(/\s+/g, ""))) {
-    send(`Teitoku, I am ${client.user?.username} you can utilize me via one of my following prefixs: \`chisei\`, \`c-\`, <@!${client.user?.id}>. Use \`chisei help\` to see all my capabilities`)
+    send(config.defaultMessage.replace(/{client.ping}/g, `<@!${client.user?.id}>`))
 
     return
   }

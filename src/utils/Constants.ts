@@ -4,7 +4,7 @@ import {
 
 export const Constants: ConstantsInterface = {
   colors: {
-    default: "#ff69b4",
+    pink: "#ff69b4",
     orange: "#ffa869",
     red: "#ff6969",
     green: "#82ff69",
