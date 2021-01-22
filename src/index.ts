@@ -17,6 +17,7 @@ import {
   connection,
 } from './database'
 import * as log from './logs'
+import config from './config'
 connection
   .then(() => log.success(`Mongo DB connection established`))
   .catch((err) => {
@@ -25,12 +26,22 @@ connection
   })
 const client = new Client()
 
-log.warn("Converting constant hex colors to decimal color...")
+log.warn("Updating constants real time")
 
 for (const [key, value] of Object.entries(Constants.colors)) {
   if (typeof value === 'string') {
     Constants.colors[key] = parseInt(value.replace("#", "0x"))
   }
+}
+if (config.prefixes) {
+  Constants.prefixes = config.prefixes
+}
+if (config.allowBotToBeMentionedAsPrefix || !config.prefixes) {
+  Constants.prefixes = [
+    ...Constants.prefixes,
+    `<@${client.user?.id}>`,
+    `<@!${client.user?.id}>`,
+  ]
 }
 
 log.debug("New constants created: ")

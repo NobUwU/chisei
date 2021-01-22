@@ -6,25 +6,33 @@ import {
   CommandPropsInterface,
 } from '../../@types'
 import mongoose from 'mongoose'
+
 const ping: CommandInterface = {
   name: "ping",
   aliases: [
     "pong",
   ],
+
   callback(props: CommandPropsInterface): void {
+
     const {
       client,
       createdTimestamp,
       constants,
       send,
     } = props
+
     const {
       colors,
     } = constants
+
     const dateThenBeforeDB = Date.now()
     const ws = client.ws.ping
+
     mongoose.connection.db.admin().ping(function () {
+
       const dateThenAfterDB = Date.now()
+      
       send(
         {
           embed: {
@@ -34,6 +42,7 @@ const ping: CommandInterface = {
         },
       )
         .then(m => {
+          
           m.edit(
             {
               embed: {
@@ -47,7 +56,9 @@ Database - ${Date.now() - dateThenBeforeDB}ms\`\`\``,
             },
           )
         })
+
     })
+    
   },
 }
 export default ping

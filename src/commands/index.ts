@@ -12,6 +12,7 @@ export const commands: CommandInterface[] = [
 ]
 
 export const parseCommand = async (props: CommandPropsInterface): Promise<void> => {
+  
   const {
     client,
     send,
@@ -20,6 +21,7 @@ export const parseCommand = async (props: CommandPropsInterface): Promise<void> 
     author,
     log,
   } = props
+  
   if (author.bot) return
 
   if (constants.prefixes.includes(content.replace(/\s+/g, ""))) {
@@ -27,6 +29,7 @@ export const parseCommand = async (props: CommandPropsInterface): Promise<void> 
 
     return
   }
+  
   props.args = content.split(" ")
     .filter(i => i.length > 0)
   
@@ -42,8 +45,10 @@ export const parseCommand = async (props: CommandPropsInterface): Promise<void> 
 
     return
   } catch (err) {
+
     log.debug(`Error Occurred`)
     log.error(err)
+
     send(
       {
         embed: {

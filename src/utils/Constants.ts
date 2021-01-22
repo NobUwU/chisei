@@ -12,10 +12,5 @@ export const Constants: ConstantsInterface = {
     blueDark: "#6982ff",
     purple: "#a069ff",
   },
-  prefixes: [
-    "<@!743518504740716704>",
-    "<@743518504740716704>",
-    "chisei",
-    "c-",
-  ],
+  prefixes: [],
 }
