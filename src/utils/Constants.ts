@@ -2,10 +2,7 @@ import {
   ConstantsInterface,
 } from "src/@types"
 
-const ClientID = "743518504740716704"
-
 export const Constants: ConstantsInterface = {
-  clientId: ClientID,
   colors: {
     default: "#ff69b4",
     orange: "#ffa869",
@@ -15,10 +12,10 @@ export const Constants: ConstantsInterface = {
     blueDark: "#6982ff",
     purple: "#a069ff",
   },
-  defaultPrefixes: [
+  prefixes: [
+    "<@!743518504740716704>",
+    "<@743518504740716704>",
     "chisei",
-    `<@${ClientID}>`,
-    `<@!${ClientID}>`,
     "c-",
   ],
 }

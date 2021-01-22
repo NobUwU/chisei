@@ -1,3 +1,5 @@
-export * from './props'
+export * from './eventProps'
 export * from './logs'
 export * from './constants'
+export * from './commandProps'
+export * from './command'

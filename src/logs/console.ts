@@ -16,5 +16,7 @@ export const error = (...content: Array<string>): void => {
   console.log(`${chalk.gray(moment().format("YYYY-MM-DD HH:mm:ss"))} ${chalk.red("[ERROR]")} ${content}`)
 }
 export const debug = (...content: Array<string>): void => {
-  console.log(`${chalk.gray(moment().format("YYYY-MM-DD HH:mm:ss"))} ${chalk.magenta("[DEBUG]")} ${content}`)
+  if (process.env.NODE_ENV !== 'production') {
+    console.log(`${chalk.gray(moment().format("YYYY-MM-DD HH:mm:ss"))} ${chalk.magenta("[DEBUG]")} ${content}`)
+  }
 }

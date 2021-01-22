@@ -6,7 +6,7 @@ import {
   ConstantsInterface,
 } from "./"
 
-export interface PropsInterface {
+export interface EventPropsInterface {
   client: Client
   log: LogsInterface
   constants: ConstantsInterface
