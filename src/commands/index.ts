@@ -4,7 +4,10 @@ import {
 import {
   CommandInterface,
   CommandPropsInterface,
-} from 'src/@types'
+} from '../@types'
+import {
+  execute,
+} from '../chat'
 import utils from './utils'
 
 export const commands: CommandInterface[] = [
@@ -23,7 +26,7 @@ export const parseCommand = async (props: CommandPropsInterface): Promise<void> 
     log,
   } = props
   
-  if (author.bot) return
+  if (author.bot) return notCommand(props)
 
   if (constants.prefixes.includes(content.replace(/\s+/g, ""))) {
     send(config.defaultMessage.replace(/{client.ping}/g, `<@!${client.user?.id}>`))
@@ -34,13 +37,13 @@ export const parseCommand = async (props: CommandPropsInterface): Promise<void> 
   props.args = content.split(" ")
     .filter(i => i.length > 0)
   
-  if (!props.args[0]) return
-  if (!constants.prefixes.includes(props.args[0].toLowerCase())) return
+  if (!props.args[0]) return notCommand(props)
+  if (!constants.prefixes.includes(props.args[0].toLowerCase())) return notCommand(props)
   props.args.shift()
 
-  if (!props.args[0]) return
+  if (!props.args[0]) return notCommand(props)
   const command: CommandInterface | undefined = commands.find(cmd => cmd.aliases?.includes(props.args[0].toLowerCase()) || cmd.name === props.args[0].toLowerCase())
-  if (!command) return
+  if (!command) return notCommand(props)
   props.args.shift()
 
   try {
@@ -66,3 +69,9 @@ export const parseCommand = async (props: CommandPropsInterface): Promise<void> 
   }
 
 } 
+
+function notCommand(props: CommandPropsInterface): void {
+  execute(props)
+
+  return
+}

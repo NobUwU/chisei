@@ -1,6 +1,6 @@
 import {
   ConstantsInterface,
-} from "src/@types"
+} from "../@types"
 
 export const Constants: ConstantsInterface = {
   colors: {

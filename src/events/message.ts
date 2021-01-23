@@ -5,10 +5,11 @@ import {
 import {
   CommandPropsInterface,
   EventPropsInterface,
-} from "src/@types"
+} from "../@types"
 import {
   parseCommand,
 } from '../commands'
+
 const message = (props: EventPropsInterface) => (message: Message): void => {
 
   const {
@@ -16,8 +17,8 @@ const message = (props: EventPropsInterface) => (message: Message): void => {
     constants,
     config,
   } = props
-
-  log.debug(message.content)
+  
+  log.debug("Discord Chat Event: " + message.content)
 
   const send = (content: string | { embed: MessageEmbed }): Promise<Message> => {
     return message.channel.send(content)

@@ -1,6 +1,6 @@
 import {
   EventPropsInterface,
-} from "src/@types"
+} from "../@types"
 
 const ready = (props: EventPropsInterface) => (): void => {
 
