@@ -1,5 +1,5 @@
 import {
-  CommandPropsInterface,
+  MessagePropsInterface,
 } from './'
 export interface ChatInterface {
   /**
@@ -18,5 +18,5 @@ export interface ChatInterface {
    * Where code go to make beeps and boops
    * @param props Props given to command
    */
-  callback (props?: CommandPropsInterface): Promise<void> | void
+  callback (props?: MessagePropsInterface): Promise<void> | void
 }

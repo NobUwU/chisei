@@ -1,6 +1,6 @@
 import {
   CommandInterface,
-  CommandPropsInterface,
+  MessagePropsInterface,
 } from '../../@types'
 import {
   MessageEmbed,
@@ -12,7 +12,7 @@ const embed: CommandInterface = {
     "em",
   ],
 
-  callback(props: CommandPropsInterface): void {
+  callback(props: MessagePropsInterface): void {
 
     const {
       constants,

@@ -1,12 +1,12 @@
 import {
   CommandInterface,
-  CommandPropsInterface,
+  MessagePropsInterface,
 } from '../../@types'
 
 const test: CommandInterface = {
   name: "test",
 
-  callback(props: CommandPropsInterface): void {
+  callback(props: MessagePropsInterface): void {
 
     const {
       send,

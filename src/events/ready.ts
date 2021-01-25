@@ -1,8 +1,8 @@
 import {
-  EventPropsInterface,
+  PropsInterface,
 } from "../@types"
 
-const ready = (props: EventPropsInterface) => (): void => {
+const ready = (props: PropsInterface) => (): void => {
 
   const {
     client,

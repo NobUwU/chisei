@@ -6,9 +6,10 @@ import {
 import {
   ready,
   message,
+  //voiceStateEvent,
 } from './events'
 import {
-  EventPropsInterface,
+  PropsInterface,
 } from './@types'
 import {
   Constants,
@@ -26,14 +27,17 @@ connection
   })
 const client = new Client()
 
-const props: EventPropsInterface = {
+const props: PropsInterface = {
   client,
   log,
   constants: Constants,
   config,
+  queues: {},
+  searches: {},
 }
 
 client.on('ready', ready(props))
 client.on('message', message(props))
+//client.on('voiceStateUpdate', voiceStateEvent(props))
 
 client.login(process.env.TOKEN)

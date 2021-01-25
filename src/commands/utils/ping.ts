@@ -3,7 +3,7 @@ import {
 } from 'discord.js'
 import {
   CommandInterface,
-  CommandPropsInterface,
+  MessagePropsInterface,
 } from '../../@types'
 import mongoose from 'mongoose'
 
@@ -13,7 +13,7 @@ const ping: CommandInterface = {
     "pong",
   ],
 
-  callback(props: CommandPropsInterface): void {
+  callback(props: MessagePropsInterface): void {
 
     const {
       client,

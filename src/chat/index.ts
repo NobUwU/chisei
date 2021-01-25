@@ -1,6 +1,6 @@
 import {
   ChatInterface,
-  CommandPropsInterface,
+  MessagePropsInterface,
 } from "../@types"
 import automod from './automod'
 
@@ -8,7 +8,7 @@ export const chatListeners: ChatInterface[] = [
   ...automod,
 ]
 
-export const execute = async (props: CommandPropsInterface): Promise<void> => {
+export const execute = async (props: MessagePropsInterface): Promise<void> => {
   await chatListeners.forEach(listener => {
     if (!listener.regex) {
       listener.callback(props)

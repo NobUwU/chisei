@@ -1,6 +1,6 @@
 import {
   CommandInterface,
-  CommandPropsInterface,
+  MessagePropsInterface,
 } from '../../@types'
 
 const listConstants: CommandInterface = {
@@ -9,7 +9,7 @@ const listConstants: CommandInterface = {
     "lc",
   ],
 
-  callback(props: CommandPropsInterface): void {
+  callback(props: MessagePropsInterface): void {
 
     const {
       constants,

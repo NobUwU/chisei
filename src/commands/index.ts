@@ -3,18 +3,20 @@ import {
 } from 'discord.js'
 import {
   CommandInterface,
-  CommandPropsInterface,
+  MessagePropsInterface,
 } from '../@types'
 import {
   execute,
 } from '../chat'
 import utils from './utils'
+import music from './music'
 
 export const commands: CommandInterface[] = [
   ...utils,
+  ...music,
 ]
 
-export const parseCommand = async (props: CommandPropsInterface): Promise<void> => {
+export const parseCommand = async (props: MessagePropsInterface): Promise<void> => {
   
   const {
     client,
@@ -70,7 +72,7 @@ export const parseCommand = async (props: CommandPropsInterface): Promise<void> 
 
 } 
 
-function notCommand(props: CommandPropsInterface): void {
+function notCommand(props: MessagePropsInterface): void {
   execute(props)
 
   return

@@ -1,6 +1,6 @@
 import {
   CommandInterface,
-  CommandPropsInterface,
+  MessagePropsInterface,
 } from '../../@types'
 
 import {
@@ -14,7 +14,7 @@ const bannedwords: CommandInterface = {
   aliases: [
     "bw",
   ],
-  callback(props: CommandPropsInterface): void {
+  callback(props: MessagePropsInterface): void {
 
     const {
       args,

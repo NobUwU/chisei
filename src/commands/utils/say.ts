@@ -1,13 +1,13 @@
 import bannedWords from '../../chat/automod/bannedWords'
 import {
   CommandInterface,
-  CommandPropsInterface,
+  MessagePropsInterface,
 } from '../../@types'
 
 const say: CommandInterface = {
   name: "say",
 
-  callback(props: CommandPropsInterface): void {
+  callback(props: MessagePropsInterface): void {
 
     const {
       send,
