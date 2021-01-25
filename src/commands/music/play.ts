@@ -90,9 +90,9 @@ const play: CommandInterface = {
 
     const isYT = /youtube\.com|youtu\.be/.test(url)
 
-    let source = isYT ? url : formats.find(({ format }) => /audio only/.test(format))?.url
+    const source = isYT ? url : formats.find(({ format }) => /audio only/.test(format))?.url
 
-    source?.includes('open.spotify') ? source = source.replace('/embed', "") : null
+    //source?.includes('open.spotify') ? source = source.replace('/embed', "") : null
 
     const duration = durationFromSeconds(rawDuration)
 
